@@ -1,0 +1,159 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <strong>Alejandro Lera López</strong>
+      </div>
+
+      <nav class="nav" aria-label="Secciones">
+        <a href="/#projects">Proyectos</a>
+        <a href="/#about">Sobre mí</a>
+        <a href="/#contact">Contacto</a>
+      </nav>
+    </div>
+
+    <div class="bottom">
+      <small>© {year} Alejandro Lera López · Hecho con Astro ⚡</small>
+      <a class="to-top" href="#top" aria-label="Volver arriba">↑ Arriba</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ===== Theme (scoped) ===== */
+  .site-footer {
+    --surface: #0f1320;
+    --border: #1b2240;
+    --text: #e7eaf3;
+    --muted: #a6aec2;
+    --accent: #7c5cff;
+    --accent-2: #22d3ee;
+
+    position: static; /* nada fijo */
+    color: var(--text);
+    background: radial-gradient(
+        900px 220px at 50% 0%,
+        color-mix(in oklab, var(--accent-2) 10%, transparent),
+        transparent 60%
+      ),
+      var(--surface);
+    border-top: 1px solid var(--border);
+  }
+  @media (prefers-color-scheme: light) {
+    .site-footer {
+      --surface: #ffffff;
+      --border: #e6e8f2;
+      --text: #0b0f16;
+      --muted: #5c6784;
+    }
+  }
+
+  /* ===== Reset locales ===== */
+  .site-footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ===== Layout ===== */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 20px 36px;
+  }
+  .site-footer::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--accent),
+      color-mix(in oklab, var(--accent-2) 60%, var(--accent))
+    );
+    opacity: 0.45;
+  }
+
+  .top {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+  }
+  @media (min-width: 800px) {
+    .top {
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: stretch;
+      text-align: left;
+    }
+    .nav {
+      justify-self: center;
+    }
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 25%, transparent);
+  }
+
+  .nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    color: var(--muted);
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  .nav a:hover {
+    color: var(--text);
+    border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+    background: color-mix(in oklab, var(--surface) 96%, transparent);
+  }
+
+  .bottom {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed color-mix(in oklab, var(--border) 80%, transparent);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .to-top {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .to-top:hover {
+    color: var(--text);
+    border-color: color-mix(in oklab, var(--accent) 30%, var(--border));
+    background: color-mix(in oklab, var(--surface) 96%, transparent);
+  }
+</style>
