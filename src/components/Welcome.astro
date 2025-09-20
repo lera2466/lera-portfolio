@@ -348,6 +348,11 @@ const {
     background: color-mix(in oklab, var(--surface) 96%, transparent);
     color: inherit;
   }
+  @media (max-width: 600px) {
+    .btn {
+      padding: 8px 10px;
+    }
+  }
 
   .social {
     display: flex;
@@ -376,6 +381,7 @@ const {
     position: relative;
     display: grid;
     place-items: center;
+    width: auto;
   }
 
   .avatar {
